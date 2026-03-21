@@ -1,0 +1,31 @@
+
+package guessingGame;
+import java.util.*;
+
+public class guessingGame {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner (System.in); // initializing the scanner to get user input
+        Random rand = new Random(); // initializing the random to ensure each round a random number is unknown
+        
+        int guess;
+        int answer = rand.nextInt(1,10);
+        
+        do{
+            System.out.print("Guess a number between 1-10 (Enter 0 to end the game): ");
+            guess = scan.nextInt();
+            if (guess == 0){
+            break;}
+            else if(guess != answer){
+                System.out.println("Incorrect guess. Try again");
+            }
+        }
+        while(guess != answer);
+        if(guess == answer){
+        System.out.println("You guessed correct :)");}
+        else{
+            System.out.println("Better luck nect time. The correct guess was "+answer);
+        }
+        scan.close();
+    } 
+}
