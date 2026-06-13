@@ -1,0 +1,31 @@
+
+package MarkCalculator;
+import java.util.*;
+public class MarkCalculator {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        while(true){
+            System.out.println("\"Would you like to calculate your marks(Y/N): ");
+            String input = scan.nextLine();
+            if ("y".equalsIgnoreCase(input)){
+                System.out.println("Please enter your CA mark: ");
+                int ca_Mark = scan.nextInt();
+                System.out.println("Please enter your assignment mark: ");
+                int assign_Mark = scan.nextInt();
+                System.out.println("Please enter the percentage your DP mark contributes towards the final semester mark: ");
+                int percentage_Count = scan.nextInt();
+                
+                double dp_Mark = (ca_Mark + assign_Mark)/2;
+                double final_Mark = (dp_Mark/100) * percentage_Count;
+                System.out.println("You currently have "+final_Mark+"% towards your final semester mark");
+                scan.nextLine();
+            }
+            else{
+                System.out.println("Bye:)");
+                break;
+            }
+        }
+    }
+    
+}
