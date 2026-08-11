@@ -1,0 +1,84 @@
+package signup;
+
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+
+public class SignUp extends JFrame {
+    
+    JTextField name, surname, email;
+    JPasswordField pass;
+    ButtonGroup btnGroup;
+    JRadioButton maleRadio, femaleRadio, otherRadio;
+    JComboBox<String> month_of_birth;
+    ArrayList<String> infor = new ArrayList<>();
+    JButton addBtn;
+    public SignUp(){
+        setTitle("Sign Up Form");
+        setSize(700, 400);
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(7,2,10,10));
+        
+        // Name
+        panel.add(new JLabel("Name: "));
+        name = new JTextField();
+        panel.add(name);
+        
+        // Surname
+        panel.add(new JLabel("Surname: "));
+        surname = new JTextField();
+        panel.add(surname);
+        
+        // Email
+        panel.add(new JLabel("Email: "));
+        email = new JTextField();
+        panel.add(email);
+        
+        // Password
+        panel.add(new JLabel("Password: "));
+        pass = new JPasswordField();
+        panel.add(pass);
+        
+        // Gender
+        JPanel genderPanel = new JPanel();
+        genderPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        
+        panel.add(new JLabel("Gender: "));
+        maleRadio = new JRadioButton("male");
+        femaleRadio = new JRadioButton("female");
+        otherRadio = new JRadioButton("other");
+        
+        btnGroup = new ButtonGroup();
+        btnGroup.add(maleRadio);
+        btnGroup.add(femaleRadio);
+        btnGroup.add(otherRadio);
+        
+        genderPanel.add(maleRadio);
+        genderPanel.add(femaleRadio);
+        genderPanel.add(otherRadio);
+        
+        panel.add(genderPanel);
+        
+        // Month of birth
+        panel.add(new JLabel("Month of Birth: "));
+        String[] months = {"Jan", "Feb", "Mar","Apr","May","Jun","Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        month_of_birth = new JComboBox<>(months);
+        panel.add(month_of_birth);
+        
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        addBtn = new JButton("Add");
+        buttonPanel.add(addBtn);
+        
+        panel.add(new JLabel(""));
+        panel.add(buttonPanel);
+        
+        add(panel);
+        setVisible(true);
+
+    }
+    
+    public static void main(String[] args) {
+        new SignUp();
+    }
+}
