@@ -1,0 +1,39 @@
+package loginpage;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class LoginPage extends JFrame {
+    
+    JTextField email;
+    JPasswordField password;
+    JButton loginBtn;
+    
+    public LoginPage(){
+        setTitle("Login Form");
+        setSize(400,250);
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3,2,10,10));
+        panel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        
+        panel.add(new JLabel("Email: "));
+        email = new JTextField();
+        panel.add(email);
+        
+        panel.add(new JLabel("Password: "));
+        password = new JPasswordField();
+        panel.add(password);
+        
+        panel.add(new JLabel());
+        loginBtn = new JButton("Login");
+        panel.add(loginBtn);
+        
+        add(panel);
+        setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        new LoginPage();
+    }
+}
